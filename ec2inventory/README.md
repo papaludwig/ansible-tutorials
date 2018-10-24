@@ -5,9 +5,7 @@
 1. Install [pip](https://pip.pypa.io/en/stable/installing/) to allow easy installation of the [Boto python package](https://github.com/boto/boto) (which implements AWS communication for Python)
 ````
 cd ~
-apt-get update
-apt-get install curl
-curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 pip --version
 ````
