@@ -33,12 +33,10 @@ wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/e
    10. Click Next:Review
    11. Click to download .csv for later
    12. Copy/paste Access Key ID & Secret Key Value for now
-AKIAI5EJJ4EUWHFZEUYQ
-uFu1iU3A4bXaWGvoAylMBbvqqPGdjGfEx4r+j03U
 5. Set the AKID & SV as environment variables OR set them in ec2.ini file. Environment variable override, so be cautious.
 ````
-export AWS_ACCESS_KEY_ID='AKIAI5EJJ4EUWHFZEUYQ'
-export AWS_SECRET_ACCESS_KEY='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'
+export AWS_ACCESS_KEY_ID='AK123'
+export AWS_SECRET_ACCESS_KEY='SAKV'
 ````
 6. Get the ec2.py script and make it executable
 ````
