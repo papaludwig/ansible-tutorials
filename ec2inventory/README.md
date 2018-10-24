@@ -2,7 +2,7 @@
 [ec2.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/ec2.py) is a contributed script that can directly output JSON formatted lists of your AWS resources, ready to become a dynamic inventory for your Anisble system since it supports being marked executable and supports the --list argument.
 
 ## Steps for using ec2.py:
-1. Install [pip](https://pip.pypa.io/en/stable/installing/) to allow easy installation of the [Boto python package](https://github.com/boto/boto) (which implements AWS communication for Python)
+1. Install the [pip](https://pip.pypa.io/en/stable/installing/) Python package manager to allow easy installation of the [Boto python package](https://github.com/boto/boto) (which implements AWS communication for Python)
 ````
 cd ~
 wget https://bootstrap.pypa.io/get-pip.py
