@@ -1,21 +1,23 @@
 # Dynamic Inventory from AWS EC2 Using ec2.py
-ec2.py is a contributed script that can directly output JSON and YAML formatted lists of your AWS resources, ready to become a dynamic inventory for your Anisble system.
+[ec2.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/ec2.py) is a contributed script that can directly output JSON formatted lists of your AWS resources, ready to become a dynamic inventory for your Anisble system since it supports being marked executable and supports the --list argument.
 
 ## Steps for using ec2.py:
-1. Install pip to allow easy installation of the [Boto python package](https://github.com/boto/boto) (which implements AWS communication for Python)
+1. Install [pip](https://pip.pypa.io/en/stable/installing/) to allow easy installation of the [Boto python package](https://github.com/boto/boto) (which implements AWS communication for Python)
 ````
+cd ~
 apt-get update
 apt-get install curl
 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python get-pip.py
 pip --version
 ````
-2. Then install Boto
+2. Then install [Boto](https://github.com/boto/boto)
 ````
 pip install boto
 ````
-3. Now you're ready to use ec2.py, so go ahead and grab it:
+3. Now you're ready to use ec2.py, so go ahead and grab it. (You may want to have it live in /etc/ansible, or wherever your hosts file would normally be for the role you're workig with)
 ````
+cd /etc/ansible
 wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py
 chmod +x ec2.py
 wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.ini
@@ -33,26 +35,22 @@ wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/e
    10. Click Next:Review
    11. Click to download .csv for later
    12. Copy/paste Access Key ID & Secret Key Value for now
-5. Set the AKID & SV as environment variables OR set them in ec2.ini file. Environment variable override, so be cautious.
+5. Set the AKID & SV as environment variables (this step) OR set them in ec2.ini file (see step 6 below). Environment variable overrides, so be cautious.
 ````
 export AWS_ACCESS_KEY_ID='AK123'
 export AWS_SECRET_ACCESS_KEY='SAKV'
 ````
-6. Get the ec2.py script and make it executable
-````
-wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py
-chmod +x ec2.py
-````
-7. Get the sample ec2.ini file
-````
-wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.ini
-````
-8. Edit the ec2.ini to make appropriate changes
-   1. Uncomment and properly set comma delimited list of regions
-   2. Comment regions_exclude
+6. Edit the ec2.ini to make appropriate changes
+   1. Uncomment and properly set comma delimited list of regions (to improve performance by skipping unused regions)
+   2. Comment regions_exclude (not needed when explicitly setting regions)
    3. Uncomment rds = false (unless you want to include RDS instances and have set appropriate permissions for you IAM user)
    4. Uncomment ElastiCache = false (again, unless you need them and have set permissions appropriately)
-9. Try running the script
+   5. If not using environment variables (skipped step 5 above) uncomment and adjust Access Key ID and Secret Access Key Value
+7. Try running the script
 ````
 ./ec2.py --list
 ````
+### References:
+1. https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script
+2. https://github.com/boto/boto
+3. https://pip.pypa.io/en/stable/installing/
