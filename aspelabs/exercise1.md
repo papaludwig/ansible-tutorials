@@ -1,11 +1,11 @@
-##Exercise 1: Installing Ansible##
+# Exercise 1: Installing Ansible
 - These instructions will show you how to install the Ansible controller on a Debian-based Linux distribution (like Ubuntu 16.04 LTS - our controller container's distribution). Refer to the documentation from Ansible if your operating system is not Debian based.
 
-1. First we'll ask the apt-get package manager to reload it's cache of available packages. It is important to run this so that subsequent package insall get the most current version of the specified packages.
+1. First we'll ask the apt-get package manager to reload its cache of available packages. It is important to run this so that subsequent package insalls get the most current version of the specified packages.
 ```
 apt-get update
 ```
-2. Next we'll ask apt-get to install the latest verion of the "software-properties-common" package, which defines a number of common dependencies which we'll need. in order to add a new repository and run install scripts.
+2. Next we'll ask apt-get to install the latest verion of the "software-properties-common" package, which defines a number of common dependencies which we'll need in order to add a new repository and run install scripts.
 ```
 apt-get install software-properties-common
 ```
