@@ -12,7 +12,7 @@ sudo apt-get install git
 ```
 3. After we're sure we have the atest version of git installed, use the following command to obtain the setup script and other environment files from the github cloud source code repository system.
 ```
-git clone https://github.com/mattdavis0351/AnisbleBootCamp.git
+git clone https://github.com/mattdavis0351/AnsibleBootCamp.git
 ```
 4. Navigate into the directory structure of the cloned environment files.
 ```
