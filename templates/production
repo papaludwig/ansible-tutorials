@@ -1,0 +1,15 @@
+ubuntu1 ansible_host=172.18.0.x
+ubuntu2 ansible_host=172.18.0.x
+centos1 ansible_host=172.18.0.x
+centos2 ansible_host=172.18.0.x
+
+[webservers]
+ubuntu2
+centos2
+
+[loadbalancers]
+centos1
+
+[loadbalancers:vars]
+public_port=80
+internal_port=8080
