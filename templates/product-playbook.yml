@@ -1,0 +1,52 @@
+- hosts: webservers
+  vars:
+    http_port: 8080
+
+  remote_user: root
+
+  tasks:
+    - name: Install Apache webserver deb
+      apt:
+        name: apache2
+        state: latest
+      when: ansible_os_family == "Debian"
+
+    - name: Install Apache webserver rpm
+      yum:
+        name: httpd
+        state: latest
+      when: ansible_os_family == "RedHat"
+      
+    - name: Start Apache service (enable upon boot) deb
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+      when: ansible_os_family == "Debian"
+        
+    - name: Start Apache service (enable upon boot) rpm
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      when: ansible_os_family == "RedHat"
+
+- hosts: loadbalancers
+  remote_user: root
+  tasks:
+    - name: Install HAProxy rpm
+      yum:
+        name: haproxy
+        state: latest
+        
+    - name: Start HAProxy service (enable upon boot) rpm
+      service:
+        name: haproxy
+        state: started
+        enabled: yes
+        
+    - name: Dynamic HAProxy config file from template
+      template:
+        src: templates/haproxy.cfg.j2
+        dest: /etc/haproxy/haproxy.cfg
+        
