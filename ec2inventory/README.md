@@ -13,7 +13,7 @@ pip --version
 ````
 pip install boto
 ````
-3. Now you're ready to use ec2.py, so go ahead and grab it. (You may want to have it live in /etc/ansible, or wherever your hosts file would normally be for the role you're workig with)
+3. Now you're ready to use ec2.py, so go ahead and grab it. (You may want to have it live in /etc/ansible, or wherever your hosts file would normally be for the role you're working with)
 ````
 cd /etc/ansible
 wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py
